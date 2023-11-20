@@ -5,8 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Service;
-
-import java.math.BigInteger;
 import java.util.Objects;
 
 import static com.capstone.OrderService.model.Order.SEQUENCE_NAME;
@@ -35,9 +33,6 @@ public class SequenceGeneratorService {
             mongoOperations.insert(counter1);
         }
         System.out.println(counter1.getOrderId());
-        return (!Objects.isNull(counter1) ? counter1.getOrderId() : 1);
-
-
+        return !Objects.isNull(counter1) ? counter1.getOrderId() : 1;
     }
-
 }
