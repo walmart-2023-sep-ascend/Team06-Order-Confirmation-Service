@@ -17,7 +17,7 @@ pipeline{
         stage('Build Docker image'){
             steps{
                 script{
-                    bat 'docker build -t order-service-docker.jar .'
+                    bat 'docker build -t order-service.jar .'
                 }
             }
         }

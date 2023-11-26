@@ -89,7 +89,7 @@
 				<version>3.8.2</version>
 			</plugin>
 		</plugins>
-		<finalName>order-service-docker</finalName>
+		<finalName>order-service</finalName>
 	</build>
 
 </project>

@@ -58,13 +58,13 @@ public class OrderController {
 			ord.setStatusOfOrder("Placed");
 			oserv.addOrder(ord);
 			resentity=new ResponseEntity<>(ord,HttpStatus.CREATED);
-		
+		/*
 			//Call Inventory update service 
 			if(resentity.getStatusCode()==HttpStatus.CREATED) {
 				int cartid=ord.getCartId();
 				ResponseEntity<String> Inventorymsg=resttemplate.getForEntity("http://localhost:6003/inventoryupdate/{cartid}", String.class, cartid);
 				logger.info("Inventory service:"+Inventorymsg);				
-			}
+			}*/
 		}
 		
 		catch(OrderAlreadyExistsException e)
