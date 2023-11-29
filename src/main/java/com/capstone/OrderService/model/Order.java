@@ -22,6 +22,19 @@ public class Order {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Order(int orderId, int cartId, int userId, String dateOfOrder, float amount, String modeOfPayment,
+			String paymentStatus, String dateOfDelivery, String statusOfOrder) {
+		super();
+		this.orderId = orderId;
+		this.cartId = cartId;
+		this.userId = userId;
+		this.dateOfOrder = dateOfOrder;
+		this.amount = amount;
+		this.modeOfPayment = modeOfPayment;
+		this.paymentStatus = paymentStatus;
+		this.dateOfDelivery = dateOfDelivery;
+		this.statusOfOrder = statusOfOrder;
+	}
 	public long getOrderId() {
 		return orderId;
 	}
