@@ -12,48 +12,54 @@ import com.capstone.OrderService.repository.OrderRepository;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-	
+
 	@Autowired
 	OrderRepository repo;
-	
-	public List<Order> getAllOrders()
-	{
+
+	// Get all Orders
+	public List<Order> getAllOrders() {
 		return repo.findAll();
 	}
+
+	// Get order by orderId
 	public Order getOrderbyId(int orderid) throws OrderNotFoundException {
-		Order order=null;	
-		Optional<Order> opt=this.repo.findByOrderId(orderid);
-		if(opt.isPresent()) 
-			order=opt.get();		
-		else		
+		Order order = null;
+		Optional<Order> opt = this.repo.findByOrderId(orderid);
+		if (opt.isPresent())
+			order = opt.get();
+		else
 			throw new OrderNotFoundException();
-		return order;	
+		return order;
 	}
-	public Order addOrder(Order order)throws OrderAlreadyExistsException
-	{
-		Optional<Order> opt=this.repo.findById((int) order.getOrderId());
-		if(opt.isPresent()) {
+
+	// Add order to database
+	public Order addOrder(Order order) throws OrderAlreadyExistsException {
+		Optional<Order> opt = this.repo.findById((int) order.getOrderId());
+		if (opt.isPresent()) {
 			throw new OrderAlreadyExistsException();
 		}
 		repo.save(order);
 		return order;
 	}
-	public Order getOrderbycartId(int cartid)throws OrderNotFoundException {
-		Order order=null;
-		Optional<Order> opt=this.repo.findOrderBycartId(cartid);
-		if(opt.isPresent()) 
-			order=opt.get();		
-		else		
+
+	// Get order by cart Id
+	public Order getOrderbycartId(int cartid) throws OrderNotFoundException {
+		Order order = null;
+		Optional<Order> opt = this.repo.findOrderBycartId(cartid);
+		if (opt.isPresent())
+			order = opt.get();
+		else
 			throw new OrderNotFoundException();
 		return order;
 	}
-	public List<Order> getOrderbyuserId(int userid)throws OrderNotFoundException {
-		List<Order> orders=null;
-		Optional<List<Order>> opt=this.repo.findAllByuserId(userid);
-		if(opt.isPresent()) {
-			orders=opt.get();
-		}
-		else		
+
+	// Get orders by User Id
+	public List<Order> getOrderbyuserId(int userid) throws OrderNotFoundException {
+		List<Order> orders = null;
+		Optional<List<Order>> opt = this.repo.findAllByuserId(userid);
+		if (opt.isPresent()) {
+			orders = opt.get();
+		} else
 			throw new OrderNotFoundException();
 		return orders;
 	}
