@@ -40,7 +40,7 @@ public class OrderController {
 		if (orderlist.isEmpty())
 			return new ResponseEntity<>("No orders present", HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(orderlist, HttpStatus.FOUND);
+			return new ResponseEntity<>(orderlist, HttpStatus.OK);
 	}
 
 	@GetMapping("/orderbyuserid/{userid}")
@@ -50,7 +50,7 @@ public class OrderController {
 		if (orderlist.isEmpty())
 			return new ResponseEntity<>("Order not found for given userId: " + userid, HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(orderlist, HttpStatus.FOUND);
+			return new ResponseEntity<>(orderlist, HttpStatus.OK);
 	}
 
 	@GetMapping("/orderbyid/{orderid}")
@@ -60,7 +60,7 @@ public class OrderController {
 		if (order == null)
 			return new ResponseEntity<>("Order not found for given orderId: " + orderid, HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(order, HttpStatus.FOUND);
+			return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 
 	@GetMapping("/orderbycartid/{cartid}")
@@ -70,7 +70,7 @@ public class OrderController {
 		if (order == null)
 			return new ResponseEntity<>("Order not found for given cartId: " + cartid, HttpStatus.NOT_FOUND);
 		else
-			return new ResponseEntity<>(order, HttpStatus.FOUND);
+			return new ResponseEntity<>(order, HttpStatus.OK);
 	}
 
 	@PostMapping("/addorder")
